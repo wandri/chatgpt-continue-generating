@@ -1,0 +1,29 @@
+<div class="flex w-[320px] p-8 flex-col gap-4">
+  <h1 class="text-xl font-bold">ChatGpt Unlocked Settings</h1>
+  <brn-separator class="my-1" hlmSeparator/>
+  <div>
+    <label class="inline" hlmLabel>Auto-click interval (ms):
+      <input
+        [formControl]="form"
+        class="w-full [-moz-appearance:_textfield] [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none" hlmInput min="500" placeholder='ms between check' type='number'/>
+    </label>
+  </div>
+  <div class="flex flex-col gap-4">
+    <button (click)="save()" [disabled]="this.isDisabled()" class="grow-1" hlmBtn>
+      Save
+    </button>
+    <button (click)="reload()" class="grow-1" hlmBtn variant='secondary'>
+      <hlm-icon class="mr-2" name="radixReload" size="sm"/>
+      Reload OpenAI Tabs
+    </button>
+  </div>
+  <brn-separator class="my-1" hlmSeparator/>
+  <div>
+    <label class="flex items-center" hlmLabel>
+      <brn-switch (changed)="changeActive($event)" [checked]="!isDisabled()" class="mr-2 checked" hlm>
+        <brn-switch-thumb hlm/>
+      </brn-switch>
+      Active
+    </label>
+  </div>
+</div>
